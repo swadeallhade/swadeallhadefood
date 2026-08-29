@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>খাঁটি গাওয়া ঘি অর্ডার করুন | স্বাদে আহ্লাদে Food Products</title>
+<meta name="description" content="ঘরে তৈরি খাঁটি গাওয়া ঘি — কোনো ভেজাল নেই, কোনো কেমিক্যাল নেই। আজই অর্ডার করুন, ক্যাশ অন ডেলিভারিতে পান।">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{background:#FBF4E4;}
+  .lp-header{
+    background:var(--green-deep);padding:14px 20px;border-bottom:3px solid var(--gold);
+    position:sticky;top:0;z-index:30;
+  }
+  .lp-header .nav-row{
+    max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  .lp-header .brand{color:var(--cream);font-family:'Tiro Bangla',serif;font-size:1.1rem;text-decoration:none;}
+  .lp-header nav{display:flex;gap:4px;flex-wrap:wrap;}
+  .lp-header nav a{
+    color:var(--cream);text-decoration:none;font-size:.85rem;padding:7px 12px;border-radius:999px;transition:.15s;
+  }
+  .lp-header nav a:hover{background:rgba(255,255,255,.12);}
+  .call-btn{
+    background:var(--gold);color:var(--green-deep);padding:9px 18px;border-radius:999px;
+    text-decoration:none;font-weight:600;font-size:.9rem;display:flex;align-items:center;gap:6px;
+  }
+
+  .lp-hero{
+    background:linear-gradient(180deg,var(--green-deep) 0%,var(--green-mid) 100%);
+    color:var(--cream);padding:36px 20px 50px;text-align:center;
+  }
+  .lp-hero .tag{
+    display:inline-block;background:var(--highlight);color:#fff;padding:6px 16px;border-radius:999px;
+    font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:16px;
+  }
+  .lp-hero h1{color:var(--cream);font-size:clamp(1.7rem,6vw,2.6rem);max-width:16ch;margin:0 auto 14px;}
+  .lp-hero p{color:#E8E1CC;max-width:40ch;margin:0 auto 24px;font-size:1.02rem;}
+  .lp-hero img{
+    max-width:320px;width:80%;margin:0 auto 26px;border-radius:8px;border:4px solid var(--gold);
+    box-shadow:0 24px 50px -18px rgba(0,0,0,.55);
+  }
+  .lp-cta{
+    display:inline-block;background:var(--gold);color:var(--green-deep);padding:16px 38px;
+    border-radius:999px;text-decoration:none;font-weight:700;font-size:1.05rem;
+    box-shadow:0 12px 24px -8px rgba(217,130,43,.7);
+  }
+  .trust-row{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:26px;font-size:.85rem;color:#D8D2BC;}
+
+  .lp-section{padding:48px 20px;max-width:720px;margin:0 auto;}
+  .lp-section h2{text-align:center;margin-bottom:30px;}
+
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;text-align:center;}
+  .why-card .icon{font-size:1.8rem;margin-bottom:10px;display:block;}
+  .why-card h3{font-size:1rem;margin-bottom:6px;}
+  .why-card p{font-size:.88rem;color:#5a5040;margin:0;}
+
+  .use-list{list-style:none;padding:0;margin:0;display:grid;gap:14px;}
+  .use-list li{
+    background:#fff;border-left:4px solid var(--gold);border-radius:4px;padding:14px 18px;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .use-list li span.chk{color:var(--green-mid);font-weight:700;}
+
+  .order-box{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;
+    box-shadow:0 20px 40px -20px rgba(42,33,24,.2);
+  }
+  .qty-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 22px;}
+  .qty-opt{position:relative;}
+  .qty-opt input{position:absolute;opacity:0;}
+  .qty-opt label{
+    display:block;text-align:center;padding:14px 6px;border:2px solid var(--line);border-radius:8px;
+    cursor:pointer;font-weight:600;color:var(--ink);transition:.15s;
+  }
+  .qty-opt label .g{display:block;font-size:.82rem;font-weight:400;color:#7a715e;}
+  .qty-opt input:checked + label{border-color:var(--gold);background:#FCEFDA;color:var(--clay);}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.85rem;font-weight:600;color:var(--clay);margin-bottom:6px;}
+  .field input,.field textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:6px;
+    font-family:inherit;font-size:1rem;background:#FBF4E4;
+  }
+  .field textarea{resize:vertical;min-height:70px;}
+  .total-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#F3E9D2;padding:14px 18px;border-radius:6px;margin:18px 0;font-weight:600;
+  }
+  .total-row .amt{font-family:'Tiro Bangla',serif;font-size:1.4rem;color:var(--highlight);}
+  .delivery-note{font-size:.72rem;color:var(--highlight);font-weight:600;display:block;margin-top:2px;}
+  .delivery-breakdown{font-size:.82rem;color:var(--ink);margin-top:6px;}
+  .delivery-breakdown b{color:var(--highlight);}
+  .submit-btn{
+    width:100%;background:#25D366;color:#fff;border:none;padding:16px;border-radius:999px;
+    font-size:1.05rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .submit-btn:hover{opacity:.92;}
+  .note-cod{text-align:center;font-size:.82rem;color:#7a715e;margin-top:12px;}
+
+  .lp-footer{background:var(--green-deep);color:#C9C2AC;text-align:center;padding:28px 20px;font-size:.85rem;}
+  .lp-footer a{color:var(--gold-light);text-decoration:none;margin:0 6px;}
+</style>
+</head>
+<body>
+
+<header class="lp-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">স্বাদে আহ্লাদে</a>
+    <nav>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="contact.html">যোগাযোগ</a>
+      <a href="privacy-policy.html">প্রাইভেসি পলিসি</a>
+      <a href="refund-policy.html">রিফান্ড পলিসি</a>
+    </nav>
+    <a class="call-btn" href="tel:8798007007">📞 কল করুন</a>
+  </div>
+</header>
+
+<section class="lp-hero">
+  <span class="tag">১০০% খাঁটি · ঘরে তৈরি</span>
+  <h1>খাঁটি গাওয়া ঘি — যেমন স্বাদ, তেমন আস্থা</h1>
+  <p>খাঁটি গরুর দুধ জ্বাল দিয়ে ঐতিহ্যবাহী পদ্ধতিতে তৈরি। কোনো ভেজাল নেই, কোনো কেমিক্যাল নেই — শুধু নির্ভেজাল স্বাদ।</p>
+  <img src="images/ghee-brand.png" alt="স্বাদে আহ্লাদে খাঁটি গাওয়া ঘি">
+  <br>
+  <a href="#order" class="lp-cta">এখনই অর্ডার করুন →</a>
+  <div class="trust-row">
+    <span>🐄 খাঁটি গরুর দুধ</span>
+    <span>🚚 ক্যাশ অন ডেলিভারি</span>
+    <span>📞 সরাসরি সাপোর্ট</span>
+  </div>
+</section>
+
+<section class="lp-section">
+  <h2>কেন আমাদের ঘি বেছে নেবেন</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="icon">🐄</span>
+      <h3>খাঁটি গরুর দুধ</h3>
+      <p>সরাসরি সংগ্রহ করা খাঁটি দুধ থেকে তৈরি, কোনো মিশ্রণ নেই।</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🔥</span>
+      <h3>ঐতিহ্যবাহী পদ্ধতি</h3>
+      <p>পুরনো দিনের ঘরোয়া কড়াইয়ে ধীরে জ্বাল দিয়ে তৈরি, দানাদার ও সুগন্ধি।</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🌿</span>
+      <h3>ভেজাল-মুক্ত</h3>
+      <p>কোনো প্রিজারভেটিভ, রং বা কৃত্রিম উপাদান ব্যবহার করা হয় না।</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🏡</span>
+      <h3>পাঁচ বছরের অভিজ্ঞতা</h3>
+      <p>রানাঘাট থেকে নিরাপদ খাদ্য নিয়ে কাজ করছি বিগত পাঁচ বছর ধরে।</p>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section" style="background:#F3E9D2;border-radius:12px;">
+  <h2>রান্না ও দৈনন্দিন ব্যবহারে</h2>
+  <ul class="use-list">
+    <li><span class="chk">✓</span><span>ভাত, ডাল বা রুটিতে সরাসরি ব্যবহার করা যায়</span></li>
+    <li><span class="chk">✓</span><span>পুজো ও উৎসবের রান্নার জন্য উপযোগী</span></li>
+    <li><span class="chk">✓</span><span>ভাজা-ভুনা রান্নায় সুগন্ধ ও স্বাদ যোগ করে</span></li>
+    <li><span class="chk">✓</span><span>দীর্ঘদিন সংরক্ষণ করা যায়, ঠান্ডায় রাখার প্রয়োজন নেই</span></li>
+  </ul>
+</section>
+
+<section class="lp-section" id="order">
+  <h2>এখনই অর্ডার করুন</h2>
+  <div class="order-box">
+    <div class="qty-options">
+      <div class="qty-opt">
+        <input type="radio" name="qty" id="q250" value="250" data-price="400" data-delivery="80">
+        <label for="q250">250g<span class="g">৳400</span></label>
+      </div>
+      <div class="qty-opt">
+        <input type="radio" name="qty" id="q500" value="500" data-price="750" data-delivery="60" checked>
+        <label for="q500">500g<span class="g">৳750</span></label>
+      </div>
+      <div class="qty-opt">
+        <input type="radio" name="qty" id="q1000" value="1000" data-price="1400" data-delivery="0">
+        <label for="q1000">1kg<span class="g">৳1400</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="name">আপনার নাম</label>
+      <input type="text" id="name" placeholder="আপনার নাম লিখুন">
+    </div>
+    <div class="field">
+      <label for="phone">ফোন নম্বর</label>
+      <input type="tel" id="phone" placeholder="01XXXXXXXXX">
+    </div>
+    <div class="field">
+      <label for="address">সম্পূর্ণ ঠিকানা</label>
+      <textarea id="address" placeholder="বাড়ি নং, রাস্তা, এলাকা, জেলা"></textarea>
+    </div>
+
+    <div class="total-row" style="flex-direction:column;align-items:flex-start;">
+      <div style="display:flex;justify-content:space-between;width:100%;">
+        <span>সর্বমোট (পণ্য + ডেলিভারি)</span>
+        <span class="amt" id="totalAmt">৳810</span>
+      </div>
+      <div class="delivery-breakdown" id="deliveryBreakdown">পণ্য মূল্য ৳750 + ডেলিভারি চার্জ <b>৳60</b></div>
+    </div>
+
+    <button class="submit-btn" onclick="sendOrder()">💬 WhatsApp-এ অর্ডার করুন</button>
+    <p class="note-cod">ক্যাশ অন ডেলিভারি সুবিধা আছে — অর্ডার নিশ্চিত করতে আমরা কল করব।</p>
+  </div>
+</section>
+
+<footer class="lp-footer">
+  <p><strong>স্বাদে আহ্লাদে Food Products</strong><br>
+  Payradanga, Pritinagar, Ranaghat, West Bengal – 741247<br>
+  📞 <a href="tel:8798007007">8798007007</a> | ✉️ <a href="mailto:swadeallhaefp@gmail.com">swadeallhaefp@gmail.com</a></p>
+  <p style="margin-top:14px;">
+    <a href="about.html">আমাদের কথা</a>|
+    <a href="contact.html">যোগাযোগ</a>|
+    <a href="privacy-policy.html">প্রাইভেসি পলিসি</a>|
+    <a href="refund-policy.html">রিফান্ড পলিসি</a>
+  </p>
+</footer>
+
+<script>
+  const qtyInputs = document.querySelectorAll('input[name="qty"]');
+  const totalAmt = document.getElementById('totalAmt');
+
+  const deliveryBreakdown = document.getElementById('deliveryBreakdown');
+
+  function updateTotal(){
+    const selected = document.querySelector('input[name="qty"]:checked');
+    const price = parseInt(selected.dataset.price);
+    const delivery = parseInt(selected.dataset.delivery);
+    const total = price + delivery;
+    totalAmt.textContent = '৳' + total;
+    deliveryBreakdown.innerHTML = delivery === 0
+      ? `পণ্য মূল্য ৳${price} + ডেলিভারি <b>ফ্রি</b>`
+      : `পণ্য মূল্য ৳${price} + ডেলিভারি চার্জ <b>৳${delivery}</b>`;
+  }
+  qtyInputs.forEach(el => el.addEventListener('change', updateTotal));
+
+  function sendOrder(){
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const selected = document.querySelector('input[name="qty"]:checked');
+    const qtyLabel = selected.value + 'g';
+    const price = parseInt(selected.dataset.price);
+    const delivery = parseInt(selected.dataset.delivery);
+    const total = price + delivery;
+    const deliveryText = delivery === 0 ? 'ফ্রি' : `৳${delivery}`;
+
+    if(!name || !phone || !address){
+      alert('দয়া করে নাম, ফোন নম্বর ও ঠিকানা লিখুন।');
+      return;
+    }
+
+    const msg = `আমি খাঁটি গাওয়া ঘি অর্ডার করতে চাই।\nনাম: ${name}\nফোন: ${phone}\nঠিকানা: ${address}\nপরিমাণ: ${qtyLabel}\nপণ্য মূল্য: ৳${price}\nডেলিভারি চার্জ: ${deliveryText}\nসর্বমোট: ৳${total}`;
+    const url = `https://wa.me/918798007007?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
